@@ -20,3 +20,9 @@
   \layout {}
   \midi {}
 }
+
+\score {
+\relative c' {
+   c2 d e f
+}
+}
