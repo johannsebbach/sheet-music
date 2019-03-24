@@ -1,6 +1,6 @@
 \header {
-  title = "LKK-JOXF 李宗盛"
-  composer = "Li"
+  title = "LKK-JOXF 舊愛新歡"
+  composer = "李宗盛"
 }
 
 \score {
@@ -34,6 +34,8 @@
     {<cis e a e'>16 q8.~} {q8 <cis fis b dis>16 q16~} q2
     % bar 11
     {<f, c' f a>16 q8.~} {q8 <g b d g>16 q16~} q2
+    % bar 12
+    {<c g' c e>1^\markup {\italic {back to main}} }
   }
   \layout {}
   \midi {}
