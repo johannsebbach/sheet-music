@@ -21,3 +21,12 @@
   \layout {}
   \midi {}
 }
+
+\score {
+  \relative c'
+ <<
+{a'8 b c d}
+\\
+{<c, e g>2}
+>>
+}
