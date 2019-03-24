@@ -15,14 +15,9 @@
     <c, f a b>4 a'2 ~
     a2 f'8 f8
     <c, g' c e>4 c'4 d4
-    <c, e g c>1
+    <c, e g c>2.
+    \chordmode {c4 f d}
   }
   \layout {}
   \midi {}
-}
-
-\score {
-\relative c' {
-   c2 d e f
-}
 }
