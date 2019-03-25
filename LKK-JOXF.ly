@@ -45,8 +45,23 @@
     \bar "||"
     % bar 12
     {<c g' c e>1_\markup {\italic {back to main}} } 
-    \bar "|."
+    % \bar "|."
   }
   \layout {}
+  \midi {}
+}
+
+\score {
+  \relative c
+  \new staff {
+    \key e \major
+    \set Staff.midiInstrument = #"Piano"
+    {<b' e gis b>8 q16 <b dis fis b> ~ q2.}
+    \bar "||"
+    \key c \major
+    {<c f a c>8 q16 <c e g c> ~ q2.}
+    \bar "||"
+  }
+  \layout {} 
   \midi {}
 }
