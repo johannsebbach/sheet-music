@@ -1,9 +1,14 @@
-\header {
-  title = "LKK-JOXF 舊愛新歡"
-  composer = "李宗盛"
-}
+\book {
+  \paper {
+    print-all-headers = ##t
+  }
+
 
 \score {
+  \header {
+    title = "LKK-JOXF 舊愛新歡"
+    composer = "李宗盛"
+  }
   \relative c'
   \new Staff {
     \tempo 4 = 80
@@ -64,4 +69,38 @@
   }
   \layout {} 
   \midi {}
+}
+
+\score {
+  \header {
+    title = "再回首"
+  }
+  \relative c''
+  \new staff {
+    \clef treble
+    \key g \major
+    \set Staff.midiInstrument = #"Piano"
+    <<
+    \chords { g1 e:m1 c1 g2 d:7}
+    {g'4. fis8 g2 | g4. a8 g2 | g8. fis16 fis8. e16 e4 \tuplet 3/2 {e8 d c} | b4 g a r}
+    {b4. a8   b2 | b4. c8 b2 | b8. a16   a8.   g16 g4  }
+    >>
+    \bar "||"
+    \break
+    <<
+    \chords {g1 | c1 | g2 a:m7 | c4 d c d | c1 | 
+      b:7 | a:7 | d2 d:7}
+    { d''4. cis8 d4. e8 | d4. c16 b c2 | b4. ais8 b4. e,8 | g4 fis g a | 
+      c2 g4 c | b2. \tuplet 3/2 {e,8 fis g} | b4 a a g | g2 fis4 r4
+    }
+    { d4. cis8 d4. e8 | d4. c16 b c2 | b4. ais8 b4. e,8 | g4 fis g a | 
+      c2 g4 c | b2. \tuplet 3/2 {e,8 fis g} | b4 a a g | g2 fis4 r4
+    } 
+    >>
+    \bar "||"
+  }
+  \layout {} 
+  \midi {}
+}
+
 }
