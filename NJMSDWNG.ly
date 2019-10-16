@@ -6,11 +6,17 @@
 instPiano = \relative c {
   \set Staff.midiInstrument = #"piano" 
   \clef bass
-  {<e a b c>4 <e a b c>4 <e a b c>4 <e a b c>4 }
-  {<e a b c>4 <e a b c>4 <e a b c>4 <e a b c>4 }
-  {<e a b c>4 <e a b c>4 <e a b c>4 <e a b c>4 }
-  {<f a b d>4 <f a b d>4 <f a b d>4 <f a b d>4 }
-  \repeat percent 6 {r1}
+  {<e a b c>4 <e a b c> <e a b c> <e a b c> }
+  {<e a b c>  <e a b c> <e a b c> <e a b c> }
+  {<e a b c>  <e a b c> <e a b c> <e a b c> }
+  {<d f a c>  <d f a c> <d f a c> <d f a c> }
+  {<d g f b>  <d g f b> <d g f b> <d g f b> }
+  {<c e g b>  <c e g b> <c e g b> <c e g b> }
+  {<d f a c>  <d f a c> <d f a c> <d f a c> } % should be 2m9 instead of 2m7
+  {<e a b c>  <e a b c> <e a b c> <e a b c> }
+  {<f a c d>  <f a c d> <b, d f a> <b d f a> }
+  {<e gis b>  <e gis b> <e gis b d> <e gis b d> }
+  %\repeat percent 1 {r1}
   \clef treble
   {e''16 f gis d} {e b d gis,} {b f gis d} {e gis b f}
   {e2. gis,8 b8}
