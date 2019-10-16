@@ -4,7 +4,7 @@
 }
 
 instPiano = \relative c {
-  \set Staff.midiInstrument = #"piano" 
+  \set Staff.midiInstrument = #"bright acoustic" 
   \clef bass
   % bar 1 ~ 3
   {\repeat unfold 12 {<e a b c>4} }
@@ -26,10 +26,20 @@ instPiano = \relative c {
   \time 4/4
   {<e gis b d>1 }
   {\repeat unfold 2 R1}
-}    
- instViol = \relative c {
+}
+
+instStrII = \relative c' {
+  \set Staff.midiInstrument = #"string ensemble 2"
+  R1_\markup {\italic {String II}} R1
+  % bar 3
+  { e'2 a4. e8}
+  { g8 a f g f d4 c8}
+  { b2 c4 d8 g | f e ~ e4 ~ e8 d c d | d c ~ c8. a16 f16 a e a f a g a}
+}
+
+ instStrI = \relative c {
     \set Staff.midiInstrument = #"string ensemble 1" 
-    R1 R1
+    R1_\markup {\italic {String I}} R1
     { r8. e'16 a16 e b' e, c'4 a16 e d'8} 
     % bar 4
     { e8 f d e d a ~ a4 } 
@@ -47,7 +57,7 @@ instPiano = \relative c {
     {R1 R1}
 }
 instPianoTwo = \relative c' {
-  \set Staff.midiInstrument = #"acoustic piano" 
+  \set Staff.midiInstrument = #"acoustic grand" 
   \clef bass
   {r1}
   {r2 r4 r8 e,,8}
@@ -68,7 +78,8 @@ instPianoTwo = \relative c' {
 \score {
   <<
   \time 4/4
-  \new Staff \instViol
+  \new Staff \instStrI 
+  \new Staff \instStrII
   \new Staff \instPianoTwo
   \new Staff \instPiano
   >>
