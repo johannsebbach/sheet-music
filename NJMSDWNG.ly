@@ -4,7 +4,7 @@
 }
 
 \score {
-  \relative c'
+  \relative c
   \new Staff {
      \key a \minor
     \tempo 4 = 68
@@ -12,7 +12,7 @@
     \clef treble 
     % bar 1~2
     { r1 r1 } 
-    { a8. e'16 a16 e b' e, c'4 a16 e d'8} 
+    { r8. e'16 a16 e b' e, c'4 a16 e d'8} 
     % bar 4
     { e8 f d e d a ~ a4 } 
     % bar 5
@@ -27,8 +27,8 @@
     \break
     \set Staff.midiInstrument = #"piano" 
     { e16 f gis d} {e b d gis,} {b f gis d} {e gis b f}
-    {e2 ~ e8 gis b4}
-    {a2 r2}
+    {e2. gis,8 b8}
+    {<a c e>2 r2}
   }
 
   \layout {}
