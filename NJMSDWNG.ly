@@ -3,15 +3,22 @@
   composer = "黄品源"
 }
 
-\score {
-  \relative c
-  \new Staff {
-     \key a \minor
-    \tempo 4 = 68
-    \set Staff.midiInstrument = #"string ensemble 1"
-    \clef treble 
-    % bar 1~2
-    { r1 r1 } 
+instPiano = \relative c {
+  \set Staff.midiInstrument = #"piano" 
+  \clef bass
+  {<e a b c>4 <e a b c>4 <e a b c>4 <e a b c>4 }
+  {<e a b c>4 <e a b c>4 <e a b c>4 <e a b c>4 }
+  {<e a b c>4 <e a b c>4 <e a b c>4 <e a b c>4 }
+  {<f a b d>4 <f a b d>4 <f a b d>4 <f a b d>4 }
+  \repeat percent 6 {r1}
+  \clef treble
+  {e''16 f gis d} {e b d gis,} {b f gis d} {e gis b f}
+  {e2. gis,8 b8}
+  {<a c e>2 r2}
+}    
+ instViol = \relative c {
+    \set Staff.midiInstrument = #"string ensemble 1" 
+    R1 R1
     { r8. e'16 a16 e b' e, c'4 a16 e d'8} 
     % bar 4
     { e8 f d e d a ~ a4 } 
@@ -23,14 +30,22 @@
     { e8 d d c ~ c2 }
     {r4 c16 b a f d4. c8} 
     \tuplet 3/2 {c16 d c} {b8 ~ b2.}
-    \bar "||"
-    \break
+    {R1 R1 R1}
+}
+instPianoTwo = \relative c'{
     \set Staff.midiInstrument = #"piano" 
-    { e16 f gis d} {e b d gis,} {b f gis d} {e gis b f}
-    {e2. gis,8 b8}
-    {<a c e>2 r2}
+    
   }
 
+\score {
+    <<
+    \new Staff \instViol
+    \new Staff \instPiano 
+        %\new Staff {
+    %  \tempo 4 = 68 
+    %  \partcombine \instPiano \instViol
+    %  }
+    >>
   \layout {}
   \midi {}
 }
