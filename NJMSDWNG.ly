@@ -2,15 +2,37 @@
   title = "你怎麼捨得我難過"
   composer = "黄品源"
 }
-
-instStrI = \relative c {
+instStrI = \relative c' {
+  \set Staff.midiInstrument = #"string ensemble 1"
+  R1 R1
+  % bar 3
+  { e'2 a4. e8}
+  { g8 a f g f d4 c8}
+  % bar 5
+  { b2 c4 d8 g | f e ~ e4 ~ e8 d c d }
+  % bar 7
+  { d c ~ c8. a16 f16 a e a f'8 g}
+  % bar 8
+  { g8 f f e ~ e4 d16 c b c}
+  { d4. e8 f4. d8 }
+  \time 2/4
+  % bar 10
+  { e2 }
+  \time 4/4
+  % bar 11
+  {r2 r4} 
+  \clef bass 
+  { e,16 d32 c b a gis f} {e1}
+  {R1}
+}
+instStrII = \relative c {
   \set Staff.midiInstrument = #"string ensemble 1" 
   R1 R1
   { r8. e'16 a16 e b' e, c'4 a16 e d'8} 
   % bar 4
   { e8 f d e d a ~ a4 } 
   % bar 5
-  { r16 g b g d' g, f' g, g'8 a4 g8}
+  { r16 g b g d' g, f' g, g'8 a4 d,8}
   { d8 e ~ e2. } 
   % bar 7
   { r8 a ~ a8. e16} {c'16 e, b' e,} {d'8 e }
@@ -26,29 +48,6 @@ instStrI = \relative c {
   \clef bass
   {e,,8\staccato d\staccato  c\staccato b\staccato  | gis2\tenuto e2}
   {a1}
-}
-instStrII = \relative c' {
-  \set Staff.midiInstrument = #"string ensemble 1"
-  R1 R1
-  % bar 3
-  { e'2 a4. e8}
-  { g8 a f g f d4 c8}
-  % bar 5
-  { b2 c4 d8 g | f e ~ e4 ~ e8 d c d }
-  % bar 7
-  { d c ~ c8. a16 f16 a e a f'8 g}
-  % bar 8
-  { g8 f f e ~ e4 d16 c b c}
-  { d4. e8 f4. e8 }
-  \time 2/4
-  % bar 10
-  { e2 }
-  \time 4/4
-  % bar 11
-  {r2 r4} 
-  \clef bass 
-  { e,16 d32 c b a gis f} {e1}
-  {R1}
 }
 
 instPianoI = \relative c' {
@@ -67,10 +66,10 @@ instPianoI = \relative c' {
   {e2}
   \clef treble
   \time 4/4
-  \relative c' {
-  {e'16 f gis d} {e b d gis,} {b f gis d} {e gis b f}
-  {e2. gis,8 b8}
-  {<a c e>1}
+  \relative c'' {
+  {e'16 f gis d} {e b d gis,} {b f gis d} {e gis, b f}
+  {e2 ~ e8 gis,8 b4}
+  {a1}
   }
 }
 instPianoII = \relative c {
@@ -96,22 +95,23 @@ instPianoII = \relative c {
   {<e gis b>  <e gis b>} 
   \time 4/4
   {<e gis b d>1 }
-  {\repeat unfold 2 R1}
+  {R1}
+  {\repeat unfold 4 {<e a b c>4} }
 }
 \score {
   <<
   \time 4/4
-  \new Staff \with 
-    {instrumentName = #"String I" shortInstrumentName = #"StrI"} 
+  \new Staff 
+    \with {instrumentName = #"String I" shortInstrumentName = #"StrI"} 
     \instStrI
-  \new Staff \with 
-    {instrumentName = #"String II" shortInstrumentName = #"StrII"} 
+  \new Staff
+    \with {instrumentName = #"String II" shortInstrumentName = #"StrII"} 
     \instStrII
-  \new Staff \with 
-    {instrumentName = #"Piano I" shortInstrumentName = #"PnI"} 
+  \new Staff 
+    \with {instrumentName = #"Piano I" shortInstrumentName = #"PnI"} 
     \instPianoI
-  \new Staff \with 
-    {instrumentName = #"Piano II" shortInstrumentName = #"PnII"} 
+  \new Staff 
+    \with {instrumentName = #"Piano II" shortInstrumentName = #"PnII"} 
     \instPianoII
   >>
   \layout {}
