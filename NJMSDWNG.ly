@@ -1,5 +1,5 @@
 \header {
-  title = "你怎麼捨得我難過"
+  title = "你怎麼捨得我難過 (v1.1)"
   composer = "黄品源"
 }
 instStrI = \relative c' {
