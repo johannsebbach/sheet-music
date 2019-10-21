@@ -10,22 +10,26 @@ instEGI = \relative c' {
   { g'16 g8. ~ g8 b, a16 c a8 ~ a16 c d e }
   { f4. a,8 gis16 b gis8 ~ gis b}
   { a4 ~ a16 b a e a4 b16 cis e8}
-  % duet start (small numbers)
-  {a16 f c a'  f c a' c, b'2}
-  { b16 gis e b'  gis e b' e cis'4. e,32 f g a }
-  { bes4 ~ bes16 a g a bes4 ~ bes a16 d f}
+  % duet start
+  {f16 d a f'  d a f' a, d2}
+  {gis16 e d gis  e d gis d a'4. c,32 d e f }
+  { g4 ~ g16 f e f g4 ~ g16 f b, d} 
+  \time 2/4
+  { b2}
+  \time 4/4
 }
 instEGII = \relative c'' {
   \set Staff.midiInstrument = #"overdriven guitar"
-  \repeat unfold 5 {R1}
-% duet start
-  {f16 d a f'  d a f' a, d2}
-  {gis16 e d gis  e d gis d a'4. c,32 d e f }
-  { g4 ~ g16 f e f gis4 ~ gis16 f b, d} 
+  \repeat unfold 4 {R1}
+% duet start (small numbers)
+  {r2 r4 d16 e g8}
+  {a16 f c a'  f c a' c, b'2}
+  { b16 gis e b'  gis e b' e, c'4. e,32 f g a }
+  { bes4 ~ bes16 a g a bes4 ~ bes16 a d, f}
   \time 2/4
-  { b8 b b b}
+  {d2}
   \time 4/4
-}
+  }
 
 instStrII = \relative c {
   \tempo 4 = 68
