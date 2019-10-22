@@ -130,10 +130,10 @@
   \applyOutput #'Voice #note-nought c'8[
 \set stemLeftBeamCount = #1
 \set stemRightBeamCount = #1
-  \applyOutput #'Voice #note-six a8-\tweak #'X-offset #0.6 _.
+  \applyOutput #'Voice #note-six a'8
 \set stemLeftBeamCount = #1
 \set stemRightBeamCount = #1
-  \applyOutput #'Voice #note-five gis8-\tweak #'X-offset #0.6 _.] 
+  \applyOutput #'Voice #note-five gis'8] 
 }
   \applyOutput #'Voice #note-five g'4
 \times 2/3 {
@@ -213,7 +213,7 @@
 \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 6: %}
   \applyOutput #'Voice #note-one c'4 ~
   \applyOutput #'Voice #note-dashone c'4
-\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-seven b'4 ~
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-seven b4-\tweak #'Y-offset #-1.2 -\tweak #'X-offset #0.6 _. ~
 #(define (note-dashseven grob grob-origin context)
   (if (and (eq? (ly:context-property context 'chordChanges) #t)
       (or (grob::has-interface grob 'note-head-interface)
@@ -222,9 +222,9 @@
       (ly:grob-set-property! grob 'stencil
         (grob-interpret-markup grob
           (make-lower-markup 0.5 (make-bold-markup "–")))))))
-  \applyOutput #'Voice #note-dashseven b'4
+  \applyOutput #'Voice #note-dashseven b4
 \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 7: %}
-  \applyOutput #'Voice #note-six a'4 ~
+  \applyOutput #'Voice #note-six a4-\tweak #'Y-offset #-1.2 -\tweak #'X-offset #0.6 _. ~
 #(define (note-dashsix grob grob-origin context)
   (if (and (eq? (ly:context-property context 'chordChanges) #t)
       (or (grob::has-interface grob 'note-head-interface)
@@ -233,7 +233,7 @@
       (ly:grob-set-property! grob 'stencil
         (grob-interpret-markup grob
           (make-lower-markup 0.5 (make-bold-markup "–")))))))
-  \applyOutput #'Voice #note-dashsix a'4
+  \applyOutput #'Voice #note-dashsix a4
 \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-three e'4 ~
   \applyOutput #'Voice #note-dashthree e'4
 \bar "|." } }
@@ -249,7 +249,7 @@ title="走樣"
 << 
 
 % === BEGIN MIDI STAFF ===
-    \new Staff { \new Voice="midi" { \transpose c a, { \key c \major  \time 4/4 r4 r4 r4 r4 | %{ bar 2: %} c''4 ~ c''4 b'4. g''8 | %{ bar 3: %} a'4 \times 2/3 { r8 a8 gis8 } g'4 \times 2/3 { r8 g'8 fis'8 } | %{ bar 4: %} f'4 ~ f'4 e'4 ~ e'4 | %{ bar 5: %} d'4 ~ d'4 g'4. e'16 d'16 | %{ bar 6: %} c'4 ~ c'4 b'4 ~ b'4 | %{ bar 7: %} a'4 ~ a'4 e'4 ~ e'4 } } }
+    \new Staff { \new Voice="midi" { \transpose c a, { \key c \major  \time 4/4 r4 r4 r4 r4 | %{ bar 2: %} c''4 ~ c''4 b'4. g''8 | %{ bar 3: %} a'4 \times 2/3 { r8 a'8 gis'8 } g'4 \times 2/3 { r8 g'8 fis'8 } | %{ bar 4: %} f'4 ~ f'4 e'4 ~ e'4 | %{ bar 5: %} d'4 ~ d'4 g'4. e'16 d'16 | %{ bar 6: %} c'4 ~ c'4 b4 ~ b4 | %{ bar 7: %} a4 ~ a4 e'4 ~ e'4 } } }
 % === END MIDI STAFF ===
 
 >>
