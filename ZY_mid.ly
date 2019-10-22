@@ -258,4 +258,112 @@ title="走樣"
 title="走樣"
 }
 \midi { \context { \Score tempoWholesPerMinute = #(ly:make-moment 84 4)}} }
+\score {
+<< \override Score.BarNumber #'break-visibility = #end-of-line-invisible
+\override Score.BarNumber #'Y-offset = -1
+\set Score.barNumberVisibility = #(every-nth-bar-number-visible 5)
 
+%% === BEGIN JIANPU STAFF ===
+    \new RhythmicStaff \with {
+    \consists "Accidental_engraver"
+    %% Get rid of the stave but not the barlines.
+    %% This changes between Lilypond versions.
+    %% \remove Staff_symbol_engraver %% worked pre-2.18, but 2.18 results in missing barlines (adding Barline_engraver won't help). Do this instead:
+    \override StaffSymbol #'line-count = #0 %% tested in 2.15.40, 2.16.2, 2.18.0 and 2.18.2
+    \override BarLine #'bar-extent = #'(-2 . 2) %% LilyPond 2.18: please make barlines as high as the time signature even though we're on a RhythmicStaff (2.16 and 2.15 don't need this although its presence doesn't hurt; Issue 3685 seems to indicate they'll fix it post-2.18)
+    }
+    { \new Voice="jianpu" {
+    \override Beam #'transparent = ##f % (needed for LilyPond 2.18 or the above switch will also hide beams)
+    \override Stem #'direction = #DOWN
+    \override Stem #'length-fraction = #0.5
+    \override Beam #'beam-thickness = #0.1
+    \override Beam #'length-fraction = #0.5
+    \override Voice.Rest #'style = #'neomensural % this size tends to line up better (we'll override the appearance anyway)
+    \override Accidental #'font-size = #-4
+    \override Tie #'staff-position = #2.5
+    \override TupletBracket #'bracket-visibility = ##t
+    \tupletUp
+    \set Voice.chordChanges = ##t % 2.19 bug workaround
+%} 
+    \override Staff.TimeSignature #'style = #'numbered
+    \override Staff.Stem #'transparent = ##t
+       \applyOutput #'Voice #note-nought r4
+  \applyOutput #'Voice #note-dash r4
+  \applyOutput #'Voice #note-dash r4
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #2
+  \applyOutput #'Voice #note-nought c'16[
+\set stemLeftBeamCount = #2
+\set stemRightBeamCount = #2
+  \applyOutput #'Voice #note-five g'16
+\set stemLeftBeamCount = #2
+\set stemRightBeamCount = #2
+  \applyOutput #'Voice #note-one c''16^.
+\set stemLeftBeamCount = #2
+\set stemRightBeamCount = #2
+  \applyOutput #'Voice #note-five g'16]
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 2: %}
+  \applyOutput #'Voice #note-three e''4^. ~
+  \applyOutput #'Voice #note-dashthree e''4
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-two d''4^. ~
+  \applyOutput #'Voice #note-dashtwo d''4
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 3: %}
+  \applyOutput #'Voice #note-one c''4^. ~
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashone c''4 ~
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-dashone c''4 ~
+  \applyOutput #'Voice #note-dashone c''4
+| %{ bar 4: %}
+  \applyOutput #'Voice #note-nought r4
+  \applyOutput #'Voice #note-dash r4
+  \applyOutput #'Voice #note-dash r4
+  \applyOutput #'Voice #note-dash r4
+| %{ bar 5: %}
+  \applyOutput #'Voice #note-nought r4
+  \applyOutput #'Voice #note-dash r4
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #1
+  \applyOutput #'Voice #note-nought c'8[
+\set stemLeftBeamCount = #1
+\set stemRightBeamCount = #2
+  \applyOutput #'Voice #note-six a'16
+\set stemLeftBeamCount = #2
+\set stemRightBeamCount = #2
+  \applyOutput #'Voice #note-one c''16]^.
+\set stemLeftBeamCount = #0
+\set stemRightBeamCount = #2
+  \applyOutput #'Voice #note-three e''16[^.
+\set stemLeftBeamCount = #2
+\set stemRightBeamCount = #2
+  \applyOutput #'Voice #note-five g''16^.
+\set stemLeftBeamCount = #2
+\set stemRightBeamCount = #2
+  \applyOutput #'Voice #note-six a''16^.
+\set stemLeftBeamCount = #2
+\set stemRightBeamCount = #2
+  \applyOutput #'Voice #note-one c'''16]-\tweak #'X-offset #0.3 ^\markup{\bold :}
+~
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 6: %}
+  \applyOutput #'Voice #note-one c''4^. ~
+  \applyOutput #'Voice #note-dashone c''4
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-two d''4^. ~
+  \applyOutput #'Voice #note-dashtwo d''4
+| %{ bar 7: %}
+  \applyOutput #'Voice #note-nought r4
+  \applyOutput #'Voice #note-dash r4
+  \applyOutput #'Voice #note-dash r4
+  \applyOutput #'Voice #note-dash r4
+\bar "|." } }
+% === END JIANPU STAFF ===
+
+>>
+\layout{} }
+\score {
+\unfoldRepeats
+<< 
+
+% === BEGIN MIDI STAFF ===
+    \new Staff { \new Voice="midi" { r4 r4 r4 r16 g'16 c''16 g'16 | %{ bar 2: %} e''4 ~ e''4 d''4 ~ d''4 | %{ bar 3: %} c''4 ~ c''4 ~ c''4 ~ c''4 | %{ bar 4: %} r4 r4 r4 r4 | %{ bar 5: %} r4 r4 r8 a'16 c''16 e''16 g''16 a''16 c'''16 ~ | %{ bar 6: %} c''4 ~ c''4 d''4 ~ d''4 | %{ bar 7: %} r4 r4 r4 r4 } }
+% === END MIDI STAFF ===
+
+>>
+\midi { \context { \Score tempoWholesPerMinute = #(ly:make-moment 84 4)}} }
