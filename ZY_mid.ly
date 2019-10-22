@@ -75,6 +75,7 @@
   \applyOutput #'Voice #note-dash r4
   \applyOutput #'Voice #note-dash r4
   \applyOutput #'Voice #note-dash r4
+\once \override Score.RehearsalMark #'break-visibility = #begin-of-line-invisible \once \override Score.RehearsalMark #'self-alignment-X = #RIGHT \mark "D.C. al Fine" \bar "||"
 \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 #(define (note-one grob grob-origin context)
   (if (and (eq? (ly:context-property context 'chordChanges) #t)
       (or (grob::has-interface grob 'note-head-interface)
@@ -249,7 +250,7 @@ title="走樣"
 << 
 
 % === BEGIN MIDI STAFF ===
-    \new Staff { \new Voice="midi" { \transpose c a, { \key c \major  \time 4/4 r4 r4 r4 r4 | %{ bar 2: %} c''4 ~ c''4 b'4. g''8 | %{ bar 3: %} a'4 \times 2/3 { r8 a'8 gis'8 } g'4 \times 2/3 { r8 g'8 fis'8 } | %{ bar 4: %} f'4 ~ f'4 e'4 ~ e'4 | %{ bar 5: %} d'4 ~ d'4 g'4. e'16 d'16 | %{ bar 6: %} c'4 ~ c'4 b4 ~ b4 | %{ bar 7: %} a4 ~ a4 e'4 ~ e'4 } } }
+    \new Staff { \new Voice="midi" { \transpose c a, { \key c \major  \time 4/4 r4 r4 r4 r4 \once \override Score.RehearsalMark #'break-visibility = #begin-of-line-invisible \once \override Score.RehearsalMark #'self-alignment-X = #RIGHT \mark "D.C. al Fine" \bar "||" | %{ bar 2: %} c''4 ~ c''4 b'4. g''8 | %{ bar 3: %} a'4 \times 2/3 { r8 a'8 gis'8 } g'4 \times 2/3 { r8 g'8 fis'8 } | %{ bar 4: %} f'4 ~ f'4 e'4 ~ e'4 | %{ bar 5: %} d'4 ~ d'4 g'4. e'16 d'16 | %{ bar 6: %} c'4 ~ c'4 b4 ~ b4 | %{ bar 7: %} a4 ~ a4 e'4 ~ e'4 } } }
 % === END MIDI STAFF ===
 
 >>
@@ -257,3 +258,4 @@ title="走樣"
 title="走樣"
 }
 \midi { \context { \Score tempoWholesPerMinute = #(ly:make-moment 84 4)}} }
+
