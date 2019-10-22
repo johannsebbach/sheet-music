@@ -343,10 +343,10 @@ title="走樣"
   \applyOutput #'Voice #note-one c'''16]-\tweak #'X-offset #0.3 ^\markup{\bold :}
 ~
 \once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0 | %{ bar 6: %}
-  \applyOutput #'Voice #note-one c''4^. ~
-  \applyOutput #'Voice #note-dashone c''4
-\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-two d''4^. ~
-  \applyOutput #'Voice #note-dashtwo d''4
+  \applyOutput #'Voice #note-one c'''4-\tweak #'X-offset #0.3 ^\markup{\bold :} ~
+  \applyOutput #'Voice #note-dashone c'''4
+\once \override Tie #'transparent = ##t \once \override Tie #'staff-position = #0   \applyOutput #'Voice #note-two d'''4-\tweak #'X-offset #0.3 ^\markup{\bold :} ~
+  \applyOutput #'Voice #note-dashtwo d'''4
 | %{ bar 7: %}
   \applyOutput #'Voice #note-nought r4
   \applyOutput #'Voice #note-dash r4
@@ -362,7 +362,7 @@ title="走樣"
 << 
 
 % === BEGIN MIDI STAFF ===
-    \new Staff { \new Voice="midi" { r4 r4 r4 r16 g'16 c''16 g'16 | %{ bar 2: %} e''4 ~ e''4 d''4 ~ d''4 | %{ bar 3: %} c''4 ~ c''4 ~ c''4 ~ c''4 | %{ bar 4: %} r4 r4 r4 r4 | %{ bar 5: %} r4 r4 r8 a'16 c''16 e''16 g''16 a''16 c'''16 ~ | %{ bar 6: %} c''4 ~ c''4 d''4 ~ d''4 | %{ bar 7: %} r4 r4 r4 r4 } }
+    \new Staff { \new Voice="midi" { r4 r4 r4 r16 g'16 c''16 g'16 | %{ bar 2: %} e''4 ~ e''4 d''4 ~ d''4 | %{ bar 3: %} c''4 ~ c''4 ~ c''4 ~ c''4 | %{ bar 4: %} r4 r4 r4 r4 | %{ bar 5: %} r4 r4 r8 a'16 c''16 e''16 g''16 a''16 c'''16 ~ | %{ bar 6: %} c'''4 ~ c'''4 d'''4 ~ d'''4 | %{ bar 7: %} r4 r4 r4 r4 } }
 % === END MIDI STAFF ===
 
 >>
